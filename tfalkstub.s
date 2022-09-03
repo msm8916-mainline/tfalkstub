@@ -91,10 +91,7 @@ panic:
 	b	panic
 
 smc32:
-	/*
-	 * Increment return address to return after the trapped SMC instruction.
-	 * Note: this assumes A32 (not T32/thumb) for now
-	 */
+	/* Increment address to return after the trapped SMC instruction */
 	mrs	x15, elr_el2
 	add	x15, x15, 4
 	msr	elr_el2, x15
